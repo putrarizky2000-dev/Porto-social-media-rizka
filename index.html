@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio Ceria | Rizka Ade Novita</title>
+    <style>
+        /* Import Font Modern & Ceria */
+        @import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700&family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap');
+
+        :root {
+            /* Palet Warna Vibrant & Colorful */
+            --bg-body: #fdf2f8; 
+            --primary-vibrant: #db2777; 
+            --secondary-vibrant: #14b8a6; 
+            --vibrant-purple: #9333ea; 
+            --vibrant-gold: #f59e0b; 
+            --vibrant-orange: #f97316; 
+            
+            --text-main: #1f2937; 
+            --text-on-vibrant: #ffffff; 
+            
+            --card-bg: #ffffff;
+            
+            --shadow-vibrant: 0 10px 15px -3px rgba(219, 39, 119, 0.3), 0 4px 6px -2px rgba(219, 39, 119, 0.1);
+            --shadow-vibrant-hover: 0 20px 25px -5px rgba(219, 39, 119, 0.4), 0 10px 10px -5px rgba(219, 39, 119, 0.2);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            overflow-x: hidden;
+            line-height: 1.7;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-body);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(var(--primary-vibrant), var(--vibrant-purple));
+            border-radius: 10px;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Unbounded', sans-serif;
+            font-weight: 700;
+        }
+
+        /* Navigation Responsive */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 12px 8%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-bottom: 3px solid var(--primary-vibrant);
+        }
+
+        .logo {
+            font-size: 1.3rem;
+            color: var(--primary-vibrant);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            white-space: nowrap;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 15px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            padding: 6px 12px;
+            border-radius: 10px;
+            white-space: nowrap;
+        }
+
+        .nav-links a:hover {
+            background-color: var(--primary-vibrant);
+            color: white;
+        }
+
+        /* Hero Section */
+        header {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 110px 8% 50px 8%;
+            background: 
+                radial-gradient(circle at 10% 10%, rgba(219, 39, 119, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 90% 90%, rgba(20, 184, 166, 0.15) 0%, transparent 40%);
+        }
+
+        .hero-container {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            align-items: center;
+            gap: 40px;
+            width: 100%;
+        }
+
+        .hero-tag {
+            font-size: 0.85rem;
+            color: var(--text-on-vibrant);
+            margin-bottom: 15px;
+            font-weight: 700;
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary-vibrant), var(--vibrant-orange));
+            padding: 6px 18px;
+            border-radius: 30px;
+            box-shadow: 0 4px 10px rgba(219, 39, 119, 0.3);
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            color: var(--text-main);
+            margin-bottom: 20px;
+        }
+
+        h1 span {
+            color: var(--primary-vibrant);
+            position: relative;
+        }
+
+        h1 span::after {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background-color: rgba(20, 184, 166, 0.3);
+            z-index: -1;
+            border-radius: 5px;
+        }
+
+        .hero-sub {
+            font-size: 1.3rem;
+            color: var(--vibrant-purple);
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .hero-desc {
+            font-size: 1.05rem;
+            color: #4b5563;
+            margin-bottom: 30px;
+            max-width: 650px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            background: linear-gradient(135deg, var(--primary-vibrant), var(--vibrant-purple));
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            box-shadow: var(--shadow-vibrant);
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-vibrant-hover);
+        }
+
+        .profile-img-wrapper {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+
+        /* Foto Profil HP Friendly */
+        .profile-img {
+            width: 100%;
+            max-width: 320px;
+            height: auto;
+            max-height: 440px;
+            object-fit: contain;
+            border-radius: 25px;
+            border: 6px solid #ffffff;
+            background: #ffffff;
+            box-shadow: var(--shadow-vibrant);
+            z-index: 2;
+        }
+
+        .profile-img-wrapper::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            max-width: 320px;
+            height: 100%;
+            min-height: 380px;
+            background: linear-gradient(135deg, var(--secondary-vibrant), var(--vibrant-gold));
+            border-radius: 25px;
+            top: 12px;
+            left: 12px;
+            z-index: 1;
+            transform: rotate(-3deg);
+        }
+
+        /* Sections General */
+        section {
+            padding: 80px 8%;
+        }
+
+        .section-title {
+            font-size: 2.4rem;
+            color: var(--text-main);
+            margin-bottom: 45px;
+            text-align: center;
+            position: relative;
+            display: block;
+        }
+
+        .section-title span {
+            color: var(--primary-vibrant);
+        }
+
+        .section-title::after {
+            content: '✿';
+            color: var(--secondary-vibrant);
+            display: block;
+            font-size: 1.3rem;
+            margin-top: 8px;
+        }
+
+        /* About Section */
+        .about-box {
+            background: white;
+            padding: 45px;
+            border-radius: 25px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.03);
+            border: 3px solid var(--secondary-vibrant);
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            text-align: justify;
+            color: #374151;
+        }
+
+        /* Experience Section (Timeline) */
+        .timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 5px;
+            background: linear-gradient(to bottom, var(--primary-vibrant), var(--secondary-vibrant), var(--vibrant-purple));
+            top: 0;
+            bottom: 0;
+            left: 25px;
+            border-radius: 3px;
+        }
+
+        .timeline-item {
+            padding: 10px 20px 10px 45px;
+            position: relative;
+            margin-bottom: 40px;
+            left: 0;
+            width: 100%;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: 14px;
+            top: 25px;
+            background: var(--vibrant-gold);
+            border: 4px solid white;
+            z-index: 2;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .timeline-item.teal-dot::after { background: var(--secondary-vibrant); }
+        .timeline-item.purple-dot::after { background: var(--vibrant-purple); }
+        .timeline-item.orange-dot::after { background: var(--vibrant-orange); }
+
+        .time-card {
+            padding: 30px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.02);
+            transition: var(--transition);
+            border: 1px solid transparent;
+        }
+
+        .time-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+            border-color: var(--secondary-vibrant);
+        }
+
+        .time-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .time-date {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: white;
+            background: linear-gradient(135deg, var(--vibrant-purple), var(--secondary-vibrant));
+            padding: 6px 16px;
+            border-radius: 30px;
+            box-shadow: 0 4px 10px rgba(147, 51, 234, 0.2);
+        }
+
+        .time-title {
+            font-size: 1.4rem;
+            color: var(--text-main);
+        }
+
+        .time-company {
+            font-weight: 700;
+            color: var(--secondary-vibrant);
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+
+        .exp-container {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 25px;
+            align-items: center;
+        }
+
+        .time-card ul {
+            list-style: none;
+        }
+
+        .time-card ul li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+            text-align: justify;
+        }
+
+        .time-card ul li::before {
+            content: '⭐';
+            position: absolute;
+            left: 0;
+            top: 2px;
+        }
+
+        .exp-img {
+            width: 100%;
+            height: auto;
+            max-height: 260px;
+            object-fit: contain;
+            background: #fafafa;
+            border-radius: 15px;
+            border: 5px solid #ffffff;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+            padding: 4px;
+        }
+
+        /* Skills Section */
+        .skills-container {
+            background: white;
+            padding: 40px;
+            border-radius: 25px;
+            border: 3px solid var(--vibrant-gold);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.03);
+        }
+
+        .skills-text {
+            font-size: 1.05rem;
+            margin-bottom: 30px;
+            text-align: justify;
+        }
+
+        .skills-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .skill-tag {
+            background: white;
+            border: 2px solid var(--primary-vibrant);
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--primary-vibrant);
+            transition: var(--transition);
+        }
+
+        .skill-tag:hover {
+            background: linear-gradient(135deg, var(--primary-vibrant), var(--vibrant-orange));
+            color: white;
+            border-color: transparent;
+            transform: translateY(-3px);
+        }
+
+        /* Projects Section */
+        .project-card {
+            background: white;
+            border-radius: 25px;
+            padding: 40px;
+            border: 3px solid var(--vibrant-purple);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.03);
+        }
+
+        .project-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .project-title {
+            font-size: 2rem;
+            color: var(--text-main);
+        }
+
+        .project-badge {
+            background: linear-gradient(135deg, var(--secondary-vibrant), var(--vibrant-gold));
+            color: white;
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .project-desc p {
+            font-size: 1rem;
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .project-gallery {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .gallery-item {
+            border-radius: 16px;
+            overflow: hidden;
+            border: 5px solid #ffffff;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+            transition: var(--transition);
+            background: var(--bg-body);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 180px;
+            object-fit: contain;
+            display: block;
+            padding: 5px;
+            background: #ffffff;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.03);
+        }
+
+        .badges-grid {
+            display: flex;
+            gap: 12px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .badge-item {
+            background: var(--bg-body);
+            border: 2px solid var(--vibrant-purple);
+            padding: 10px 18px;
+            border-radius: 12px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--vibrant-purple);
+        }
+
+        /* Contact Section */
+        .contact-box {
+            background: linear-gradient(135deg, var(--primary-vibrant), var(--vibrant-orange));
+            padding: 50px 30px;
+            border-radius: 30px;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+            box-shadow: 0 15px 35px rgba(219, 39, 119, 0.2);
+        }
+
+        .contact-box h3 {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            color: white;
+        }
+
+        .contact-box p {
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 35px;
+            font-size: 1.1rem;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .contact-card {
+            background: white;
+            padding: 14px 28px;
+            border-radius: 50px;
+            text-decoration: none;
+            color: var(--primary-vibrant);
+            font-weight: 700;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.05);
+            transition: var(--transition);
+            font-size: 1rem;
+            word-break: break-all;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-4px);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 35px 20px;
+            background: white;
+            border-top: 5px solid var(--secondary-vibrant);
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: #6b7280;
+        }
+
+        /* MEDIA QUERIES (FULL MOBILE RESPONSIVE) */
+        @media (max-width: 992px) {
+            header { padding-top: 100px; }
+            .hero-container { grid-template-columns: 1fr; text-align: center; gap: 30px; }
+            .hero-desc { margin: 0 auto 30px auto; }
+            .profile-img-wrapper { order: -1; }
+            .exp-container, .project-grid { grid-template-columns: 1fr; }
+            .skills-container, .about-box, .project-card, .time-card { padding: 30px 20px; }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 10px 5%;
+                overflow-x: auto;
+            }
+            .logo { font-size: 1.1rem; }
+            .nav-links {
+                overflow-x: auto;
+                padding-bottom: 2px;
+            }
+            .nav-links a { font-size: 0.82rem; padding: 5px 8px; }
+            
+            section { padding: 60px 5%; }
+            h1 { font-size: 2.5rem; }
+            .hero-sub { font-size: 1.1rem; }
+            .section-title { font-size: 1.8rem; }
+            
+            .timeline::after { left: 15px; }
+            .timeline-item { padding-left: 35px; padding-right: 0; }
+            .timeline-item::after { left: 5px; width: 20px; height: 20px; top: 22px; }
+            
+            .contact-box { padding: 40px 20px; }
+            .contact-box h3 { font-size: 1.8rem; }
+        }
+
+        @media (max-width: 480px) {
+            h1 { font-size: 2.1rem; }
+            .project-gallery { grid-template-columns: 1fr; }
+            .gallery-item img { height: 200px; }
+            .skill-tag { font-size: 0.85rem; padding: 8px 14px; }
+            .contact-card { width: 100%; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#" class="logo">🌸 Rizka Ade</a>
+        <ul class="nav-links">
+            <li><a href="#about">Tentang</a></li>
+            <li><a href="#experience">Pengalaman</a></li>
+            <li><a href="#skills">Keterampilan</a></li>
+            <li><a href="#project">Proyek</a></li>
+            <li><a href="#contact">Kontak</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <div class="hero-container">
+            <div class="hero-content">
+                <span class="hero-tag">Est. 2024</span>
+                <h1>Hai! Aku <span>Rizka</span></h1>
+                <p class="hero-sub">Administration & Social Media Specialist</p>
+                <p class="hero-desc">
+                    Lulusan Bisnis Digital Universitas Telkom Purwokerto. Ahli dalam strategi bisnis berbasis teknologi, pemasaran digital ceria, dan inovasi teknologi industri 4.0. Didukung tata kelola administrasi operasional yang presisi, terstruktur, dan penuh semangat!
+                </p>
+                <a href="#contact" class="btn">Yuk, Berkolaborasi! 🚀✦</a>
+            </div>
+            <div class="profile-img-wrapper">
+                <img src="pas foto rizka.jpeg" alt="Rizka Ade Novita" class="profile-img">
+            </div>
+        </div>
+    </header>
+
+    <section id="about">
+        <h2 class="section-title">✨ <span>Siapa Itu Rizka?</span> ✨</h2>
+        <div class="about-box">
+            <div class="about-text">
+                <p>Saya adalah lulusan Program Studi Bisnis Digital Universitas Telkom Purwokerto dengan minat besar pada pengembangan strategi bisnis berbasis teknologi. Memiliki kemampuan dalam menggabungkan pemahaman bisnis, pemasaran digital, dan inovasi teknologi untuk menciptakan solusi kreatif yang relevan dengan perkembangan industri 4.0, serta didukung dengan kemampuan administrasi dalam pengelolaan data, dokumentasi, dan proses operasional yang terstruktur.</p>
+                <p>Selama kuliah, saya aktif mengerjakan proyek-proyek yang melibatkan perencanaan bisnis digital, pembuatan konten kreatif, riset pasar, dan strategi pemasaran online, serta pengelolaan administrasi proyek. Pengalaman ini membantu saya mengasah keterampilan kreatif, inovatif, adaptif, serta kemampuan organisasi dan ketelitian dalam mengelola informasi.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <h2 class="section-title">💫 <span>Jejak Karier</span> 💫</h2>
+        <div class="timeline">
+            
+            <div class="timeline-item purple-dot">
+                <div class="time-card">
+                    <div class="time-meta">
+                        <h3 class="time-title">Marketing Communication</h3>
+                        <span class="time-date">Februari 2026 - Now</span>
+                    </div>
+                    <p class="time-company">Digi Flora Indonesia</p>
+                    <div class="exp-container">
+                        <ul>
+                            <li>Menjadi penghubung utama antara perusahaan dan pelanggan dengan memberikan informasi layanan, menangani konsultasi, serta memastikan pengalaman pelanggan berjalan secara profesional.</li>
+                            <li>Mengelola komunikasi pelanggan mulai dari proses konsultasi, pemesanan, hingga penanganan kendala dengan pendekatan yang responsif, solutif, dan berorientasi pada kepuasan pelanggan.</li>
+                            <li>Mengelola dan mempublikasikan konten media sosial Instagram (@digiflora.id) secara konsisten sesuai dengan brand identity.</li>
+                            <li>Merencanakan kalender konten dan memastikan kesesuaian dengan campaign serta momentum tertentu.</li>
+                            <li>Melakukan riset tren desain, konten, dan strategi digital marketing untuk menghasilkan ide kampanye yang relevan.</li>
+                            <li>Menganalisis aktivitas dan strategi kompetitor sebagai bahan pengembangan konten dan positioning brand.</li>
+                            <li>Mengembangkan ide kreatif untuk meningkatkan engagement dan brand awareness.</li>
+                        </ul>
+                        <img src="bukti magang digiflora.jpeg" alt="Bukti Magang Digi Flora" class="exp-img">
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item teal-dot">
+                <div class="time-card">
+                    <div class="time-meta">
+                        <h3 class="time-title">Retail Partnership Admin</h3>
+                        <span class="time-date">Oktober 2025 - Februari 2026</span>
+                    </div>
+                    <p class="time-company">PT ShopComm Solusi Indonesia</p>
+                    <div class="exp-container">
+                        <ul>
+                            <li>Mengelola administrasi kerja sama retail di seluruh Indonesia secara end-to-end.</li>
+                            <li>Mengumpulkan, memverifikasi, dan mengarsipkan dokumen partnership secara sistematis.</li>
+                            <li>Melakukan input, pembaruan, dan validasi data mitra retail untuk memastikan akurasi dan kelengkapan informasi.</li>
+                            <li>Berkoordinasi dengan tim internal (sales, marketing, operasional) dan mitra eksternal terkait proses kerja sama.</li>
+                            <li>Memantau status dan progres dokumen sesuai dengan timeline dan prosedur perusahaan.</li>
+                            <li>Memastikan seluruh dokumen memenuhi standar dan kebijakan yang berlaku.</li>
+                        </ul>
+                        <img src="bukti magang partnership.jpeg" alt="Bukti Kerja Partnership" class="exp-img">
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item orange-dot">
+                <div class="time-card">
+                    <div class="time-meta">
+                        <h3 class="time-title">Content Creator</h3>
+                        <span class="time-date">2023 - 2024</span>
+                    </div>
+                    <p class="time-company">Needle Stich (Program Inkubasi Kewirausahaan)</p>
+                    <ul>
+                        <li>Merancang konsep ide kreatif, visual <em>storytelling</em>, dan <em>content planning</em> untuk media sosial guna mempromosikan layanan pembuatan pakaian <em>custom</em>.</li>
+                        <li>Memproduksi konten visual berkualitas tinggi (foto produk, video pendek Reels/TikTok, proses <em>behind-the-scenes</em>, dan <em>fitting</em>) dari tahap pengambilan gambar hingga <em>editing</em>.</li>
+                        <li>Menyusun <em>copywriting</em> yang menarik, persuasif, dan informatif untuk meningkatkan <em>engagement</em>, interaksi audiens, serta konversi pesanan.</li>
+                        <li>Melakukan riset tren <em>fashion</em>, audio/format video viral, dan preferensi target audiens untuk menjaga relevansi serta daya tarik konten promosi.</li>
+                        <li>Mengoptimalkan strategi konten digital dan <em>branding</em> usaha hingga berhasil meningkatkan <em>brand awareness</em> dan berkontribusi meraih pendanaan terbesar ke-2 dalam program inkubasi kampus.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="time-card">
+                    <div class="time-meta">
+                        <h3 class="time-title">Digital Marketing</h3>
+                        <span class="time-date">2023</span>
+                    </div>
+                    <p class="time-company">Kaos Ngapak</p>
+                    <ul>
+                        <li>Mengikuti program mentoring digital marketing dengan fokus pada strategi pemasaran melalui media sosial.</li>
+                        <li>Mempelajari konsep dan praktik optimasi Instagram Ads untuk meningkatkan reach, engagement, dan potensi konversi.</li>
+                        <li>Menganalisis insight media sosial sebagai bagian dari pembelajaran untuk memahami efektivitas kampanye.</li>
+                        <li>Mengembangkan kemampuan copywriting dengan menyesuaikan gaya komunikasi terhadap target audiens lokal.</li>
+                        <li>Mempelajari teknik riset audiens dan tren pasar sebagai dasar penyusunan strategi pemasaran.</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2 class="section-title">💪 <span>Keterampilan Unggul</span> 💪</h2>
+        <div class="skills-container">
+            <p class="skills-text">
+                Keterampilan ini mendukung saya dalam membangun hubungan baik dengan pelanggan (Customer Relationship), menangani keluhan, serta memberikan layanan konsultasi yang responsif, ramah, dan solutif. Latar belakang digital marketing membantu saya berkomunikasi secara persuasif di berbagai platform media sosial, sementara kecakapan administrasi end-to-end memastikan seluruh pengelolaan data mitra retail dan pelaporan dokumentasi tertata secara presisi, cepat, dan sistematis.
+            </p>
+            <div class="skills-tags">
+                <div class="skill-tag">Customer Service Excellence</div>
+                <div class="skill-tag">Customer Relationship Management</div>
+                <div class="skill-tag">Complaint Handling & Resolution</div>
+                <div class="skill-tag">Professional Communication</div>
+                <div class="skill-tag">End-to-End Administration</div>
+                <div class="skill-tag">Document & Data Management</div>
+                <div class="skill-tag">Retail Partnership Operations</div>
+                <div class="skill-tag">Cross-Team Coordination</div>
+                <div class="skill-tag">Social Media Engagement</div>
+                <div class="skill-tag">Persuasive Copywriting</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="project">
+        <h2 class="section-title">🎨 <span>Karya Kebanggaan</span> 🎨</h2>
+        <div class="project-card">
+            <div class="project-header">
+                <h3 class="project-title">My Profesional Gallery</h3>
+                <span class="project-badge">🏆 Pendanaan Terbesar Ke-2</span>
+            </div>
+            
+            <div class="project-grid">
+                <div class="project-desc">
+                    <p> Needle Stich merupakan bisnis jasa jahit dan pembuatan pakaian custom yang dikembangkan melalui program inkubasi kewirausahaan kampus dan berhasil menjadi penerima pendanaan terbesar ke-2.</p>
+                    <p>Seluruh sistem legalitas (NIB), penghargaan kewirausahaan, serta sertifikasi kompetensi resmi dari BNSP telah berhasil dipenuhi guna memastikan kualitas operasional usaha yang terpercaya dan profesional.</p>
+                    
+                    <div class="badges-grid">
+                        <div class="badge-item">🪡 NIB Needle Stich</div>
+                        <div class="badge-item">🏆 Penghargaan Kewirausahaan</div>
+                        <div class="badge-item">📜 Sertifikat Kompetensi BNSP</div>
+                    </div>
+                </div>
+                
+                <div class="project-gallery">
+                    <div class="gallery-item">
+                        <img src="bukti magang needle stich.jpeg" alt="Operasional Needle Stich">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="Sertifikat kompetensi rizka.jpeg" alt="Sertifikat Kompetensi BNSP">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="NIB Needle Stich.jpeg" alt="NIB Needle Stich">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="sertifikat inkubasi kewirausahaan.jpeg" alt="Sertifikat Inkubasi">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="contact-box">
+            <h3>💌 Mari Terhubung!</h3>
+            <p>Suka dengan portofolio saya? Yuk, kita diskusikan peluang kerja sama atau kolaborasi hebat lainnya!</p>
+            <div class="contact-links">
+                <a href="mailto:rizkaadenovita295@gmail.com" class="contact-card">✉ rizkaadenovita295@gmail.com</a>
+                <a href="https://wa.me/6287805771549" target="_blank" class="contact-card">📞 Telp/WA: 087805771549</a>
+                <a href="https://instagram.com/rizkaaden_" target="_blank" class="contact-card">📸 @rizkaaden_</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Rizka Ade Novita. All rights reserved. Built with passion! 🌸</p>
+    </footer>
+
+</body>
+</html>
